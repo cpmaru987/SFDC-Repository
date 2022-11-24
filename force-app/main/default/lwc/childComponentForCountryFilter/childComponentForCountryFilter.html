@@ -1,0 +1,20 @@
+<template>
+<lightning-card title="Child Component" icon-name="custom:custom19">
+    <div class="slds-box slds-m-around_medium">
+        <table>
+            <tbody>
+                <template for:each={recordcountry} for:item="country">
+                    <tr key={country.Id}>
+                        <td> 
+                            <img src = {country.Country_Image_Url__c} height="250px" width="300px"/>
+                        </td>
+                        <td><b>Country:-</b>{country.Name}<br><b>Capital:-</b>{country.Capital__c}<br><b>Population:-</b>{country.Population__c}<br><b>President:-</b>{country.President__c}
+                        </td>
+                      
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</lightning-card>
+</template>

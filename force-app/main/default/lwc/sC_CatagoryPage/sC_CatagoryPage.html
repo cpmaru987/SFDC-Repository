@@ -1,0 +1,138 @@
+<template>
+
+    <!-- For Desktop UI -->
+    <div if:true={isDesktop}>
+
+        <lightning-card>
+            <div class="slds-p-left_x-small slds-p-bottom_xx-small slds-p-top_xx-small slds-m-bottom_xx-small"
+                style="display:flex;">
+                <div style="width:100%;"></div>
+                <div style="width:63%;"></div>
+                <div style="width:36%;">
+                    <h2>
+                        <lightning-input type="text"
+                            style="padding-top:1%;font-family:Proxima Nova Regular;font-size:85%;"
+                            onchange={handleEnter} value={searchKey} class="slds-float-right"
+                            placeholder="Search Product Name...">
+                        </lightning-input>
+                    </h2>
+                </div>
+                <div style="width:25%;padding-left:0.3%;padding-top: 1.7%;">
+                    <lightning-icon icon-name="utility:info" alternative-text="Please enter atleast 3 characters"
+                        title="Please enter atleast 3 characters" size="small"></lightning-icon>
+
+                </div>
+            </div>
+            <div>
+                <template if:true={showSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="large" class="spinnerClass"></lightning-spinner>
+                </template>
+                <div class="slds-grid slds-wrap productCategoryBox slds-grid_align-center">
+                    <template if:true={displayList} for:each={categoryList} for:item="service">
+                        <div class="slds-col slds-size_1-of-4 slds-m-top_large" key={service.Id}>
+                            <div class="CategoryBox" onclick={handleCategoryClick} data-id={service.Id}
+                                data-name={service.Name}>
+                                <br>
+                                <br>
+                                <img src={service.defaultImage} class="innerBox" />
+                                <h1 class="innerHeading">{service.Name}</h1>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+        </lightning-card>
+    </div>
+
+
+    <!-- For Mobile UI -->
+    <div if:false={isDesktop}>
+
+        <lightning-card>
+            <div class="slds-p-left_x-small slds-p-bottom_xx-small slds-p-top_xx-small slds-m-bottom_xx-small"
+                style="display:flex;">
+
+                <div style="width:150%;">
+                    <h2>
+                        <lightning-input type="text"
+                            style="padding-top:1%;font-family:Proxima Nova Regular;font-size:85%;"
+                            onchange={handleEnter} value={searchKey} class="slds-float-right"
+                            placeholder="Search Product Name...">
+                        </lightning-input>
+                    </h2>
+                </div>
+                <div>
+                    <lightning-icon icon-name="utility:info" alternative-text="Please enter atleast 3 characters"
+                        title="Please enter atleast 3 characters" size="small"></lightning-icon>
+
+                </div>
+            </div>
+            <div>
+                <template if:true={showSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="large" class="spinnerClass"></lightning-spinner>
+                </template>
+                <div class="slds-grid slds-grid_vertical productCategoryBox slds-grid_align-center">
+                    <template if:true={displayList} for:each={categoryList} for:item="service">
+                        <div class="slds-col slds-m-top_large slds-m-left_large" key={service.Id}>
+                            <div class="CategoryBox" onclick={handleCategoryClick} data-id={service.Id}
+                                data-name={service.Name}>
+                                <br>
+                                <br>
+                                <img src={service.defaultImage} class="innerBox" />
+                                <h1 class="innerHeading">{service.Name}M</h1>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+        </lightning-card>
+    </div>
+
+
+    <!-- For Desktop UI  example-->
+    <!-- <div if:true={isDesktop}>
+        <div>
+            <br>
+            <h1 style="font-size: xxx-large; ">{pageLabel}</h1>
+            <h4 class="countLabel" if:true={showCount}>Total Sub Products In {pageLabel}: {subProductCount}</h4> <br>
+            <br>
+            <p>{pageDiscription}</p>
+        </div>
+        <div class="slds-grid slds-wrap productCategoryBox slds-grid_align-center " style="text-align: center;">
+            <template for:each={subCategoryList} for:item="subItem">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_large" key={subItem.Id} onclick={handleSubItemClick}
+                    data-id={subItem.Id} data-name={subItem.Name}>
+                    <div class="buttonClass">{subItem.Name}</div>
+                </div>
+            </template>
+
+        </div>
+
+    </div>
+ -->
+
+    <!-- For Mobile UI example-->
+    <!-- <div if:false={isDesktop}>
+        <div>
+            <br>
+            <h1 style="font-size: xxx-large; line-height: 1;">{pageLabel}</h1>
+            <h4 class="countLabelMobile" if:true={showCount}>Total Sub Products In {pageLabel}: {subProductCount}</h4>
+            <div if:true={pageDiscription}>
+                <br>
+                <br>
+                <p>{pageDiscription}</p>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_vertical productCategoryBox slds-grid_align-center "
+            style="text-align: center;">
+            <template for:each={subCategoryList} for:item="subItem">
+                <div class="slds-col slds-m-top_large" key={subItem.Id} onclick={handleSubItemClick}
+                    data-id={subItem.Id} data-name={subItem.Name}>
+                    <div class="buttonClass">{subItem.Name}</div>
+                </div>
+            </template>
+
+        </div> -->
+</template>

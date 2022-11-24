@@ -1,0 +1,19 @@
+.productCategoryBox{
+    text-align: center; 
+}
+
+
+.CategoryBox {
+    background-color: #d9ebec;
+    min-height: 25em;
+    max-width: 90%;
+}
+
+.innerHeading{
+    padding-top: 14%;
+}
+
+.innerBox{
+    padding: 10% 10%;
+    /* background-color: #34777a; */
+}

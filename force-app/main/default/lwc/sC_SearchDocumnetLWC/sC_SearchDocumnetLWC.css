@@ -1,0 +1,20 @@
+.DocumentBox {
+    box-sizing: border-box;
+    color: black;
+}
+.btnStyle{
+    border: 1px black solid;
+    background-color: white;
+    padding: .3rem .9rem;
+    border-radius: 0.3rem;
+}
+.fixSize{
+   
+    min-width: 50px;
+}
+
+.searchIcon{
+    max-height: 20px;
+    margin-left: -3rem;
+    margin-top: .4rem;
+}

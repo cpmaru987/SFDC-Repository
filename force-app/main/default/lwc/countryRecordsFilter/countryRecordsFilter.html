@@ -1,0 +1,19 @@
+<template>
+	<lightning-card title="ParentComponent" icon-name="custom:custom19">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="4" padding="around-small">
+                <!--Input text to Search USer-->
+        <lightning-combobox name="progress" label="Countries" value={value}
+			 options={options} onchange={handleChangeCountry}></lightning-combobox>
+        
+          </lightning-layout-item >
+          <lightning-layout-item size="2" padding="around-small">
+            <!--SHOW Button-->
+            <lightning-button label="Show" variant="Neutral" onclick={handleClick}></lightning-button>
+        </lightning-layout-item>
+        </lightning-layout>
+		<c-child-component-for-country-filter url={urlCountry}> </c-child-component-for-country-filter>
+           
+	</lightning-card>
+
+</template>

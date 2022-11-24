@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title=" Time & Distance">
+        <img style="max-height: 400px"  src={resourceImageCar} class={carImageStyle} onclick={handleCarClick}/>
+        <img style="max-height: 400px"  src={resourceImageBike} class={bikeImageStyle} onclick={handleBikeClick}/>
+        <img style="max-height: 400px"  src={resourceImageHuman}  class={humanImageStyle} onclick={handleHumanClick}>
+        <img style="max-height: 400px"  src={resourceImageTrain}  class={trainImageStyle} onclick={handleTrainClick}>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input
+            type="text"
+            label="Source City"
+            placeholder="Enter Source City"
+            onchange={handleChange}
+            
+            ></lightning-input>
+        </div>
+        <div class="slds-p-around_medium lgc-bg ">
+            <lightning-input
+            type="text"
+            label="Destination City"
+            placeholder="Enter Destination City"
+            onchange={handleChange}
+            onfocusout={onHandleClick}
+            ></lightning-input>
+        </div>
+       <div class="slds-m-horizontal_x-large">
+        Time :- {travelTime}Hr
+       </div>
+    </lightning-card>
+    
+</template>

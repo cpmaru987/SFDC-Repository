@@ -1,0 +1,7 @@
+.unselectedImage{
+    background-color: black;
+
+}
+.selectedImage{
+    background-color: orange;
+}
